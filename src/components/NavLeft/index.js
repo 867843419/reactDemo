@@ -1,6 +1,7 @@
 import React from 'react'
 import './index.less'
 import MenuList from '../../config/menuConfig'
+import { NavLink } from 'react-router-dom'
 import { Menu } from 'antd';
 const { SubMenu } = Menu;
 
@@ -26,7 +27,9 @@ export default class NavLeft extends React.Component {
                     </SubMenu>
                 ) 
             }
-            return <Menu.Item key={item.key}>{item.title}</Menu.Item>
+            return <Menu.Item key={item.key}>
+                <NavLink to={item.key}>{item.title}</NavLink>
+            </Menu.Item>
         })
     }
 
@@ -35,7 +38,7 @@ export default class NavLeft extends React.Component {
             <div className="nav-left">
                 <div className="nav-left-logo">
                     <img src="/assets/logo-ant.svg" className="img" alt="" />
-                    <div className="title">react deom</div>
+                    <div className="title">react demo</div>
                 </div>
                 <Menu
                     theme="dark"

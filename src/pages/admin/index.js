@@ -1,20 +1,27 @@
 import React from 'react';
+import { Row, Col } from 'antd';
+import Header from '../../components/Header'
+import Footer from '../../components/Footer'
+import NavLeft from '../../components/NavLeft'
 import './index.less'
-import { Button } from 'antd'
 
-export default class Admin extends React.Component {
+export default class App extends React.Component {
 
-    render () {
-        return (
-            <div className="box">
-                hello world react
-                <Button>点击一下</Button>
-                <a href="http://wpa.qq.com/msgrd?v=3&uin=1819879180&site=qq&menu=yes">
-                    <img border="0" src="http://wpa.qq.com/pa?p=2::53" alt="hello world" title="hello world"/>
-                    QQ咨询
-                </a>
-            </div>
-        )
-    }
+  render(){
+    return (
+      <Row>
+        <Col span={4}>
+          <NavLeft />
+        </Col>
+        <Col span={20} className="main">
+          <Header />
+          <Row>
+            {this.props.children}
+          </Row>
+          <Footer />
+        </Col>
+      </Row>
+    );
+  }
 
 }
